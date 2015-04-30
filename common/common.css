@@ -4,9 +4,19 @@
             background-color: #87CEEB;
             min-width: 1030px;
         }
+        #main_content{
+            height:1000px;
+            }
+        #footer_line{
+            background-color: #87CEEB;
+            height:50px;
+        }
         .contents{
             width: 1030px;
             margin: 0 auto;
+        }
+        #main_content{
+            height:2000px;
         }
         #header_contents div{
             color:white;
@@ -19,6 +29,13 @@
             float;right;
             font-size:30px;
             margin-top:30px;
+        }
+        #copyright{
+            width:200px;
+            margin-left: auto;
+            margin-right: auto;
+            color:white;
+            padding-top:13px;
         }
         #right_elements{
             position:relative;
@@ -50,11 +67,21 @@
             float:left;
         }
         .contentBox{
-            width:250px;
-            margin:0px 2px;
+            width:380px;
+            margin:2px 2px;
             float:left;
             border-radius:15px;
-            height:230px;
+            height:400px;
+            position:relative;
+            border:solid;
+            color:white;
+        }
+        .adbox{
+            width:250px;
+            margin:2px 2px;
+            float:left;
+            border-radius:15px;
+            height:400px;
             position:relative;
             border:solid;
             color:white;
@@ -64,8 +91,8 @@
             border-color:#87CEEB;
         }
         .toolImg{
-            height:180px;
-            width:250px;
+            height:355px;
+            width:380px;
             border-radius: 15px 15px 0px 0px;
         }
         .ad{

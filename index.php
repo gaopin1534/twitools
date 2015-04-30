@@ -11,7 +11,7 @@
         </style>
         <meta name="description" content="" />
         <meta name="keywords" content="" />
-        <!-- <link href="./common/common.css" rel="stylesheet" type="text/css"> -->
+        <link href="./common/common.css?v=1123" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div id="header_line">
@@ -27,7 +27,7 @@
         </div>
         <div class="clearfix"></div>
         <div id="main_content" class="contents">
-        <div id="message">twitterで使える気の利くツール集</div>
+            <div id="message">twitterで使える気の利くツール集</div>
             <div id="tool_area">
                 <div class="tools contentBox">
                     <a href="" class="content_link"></a>
@@ -47,13 +47,19 @@
                 </div>
             </div>
             <div id="ad_area">
-                <div class="ad contentBox">
+                <div class="ad adbox">
                     <a href="" class="content_link"></a>
-                    <img src="./img/neko.png" alt="テストコンテント" class="toolImg">
+
                     テストコンテント
                 </div>
             </div>
         </div>
-        <div id="footer"></div>
+        <div id="footer_line">
+            <div class="contents">
+                <div id="copyright">
+                    &copy; 2015 gaopin1534
+                </div>
+            </div>
+        </div>
     </body>
 </html>
