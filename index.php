@@ -20,7 +20,7 @@
                 <div id="right_elements">
                     <ul>
                         <li id="account_img"></li>
-                        <li id="login" class="rightElm"><a id="login_link" href="#">login</a></li>
+                        <li id="login" class="rightElm"><a id="login_link" href="login.php">login</a></li>
                     </ul>
                 </div>
             </div>

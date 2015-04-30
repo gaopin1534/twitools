@@ -7,10 +7,10 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 $consumer_key = "J7PJAlie5VNncUbJ0OVOjDFEE";
 $consumer_secret = "YGdJx0r8yViMng59jGhyWmvWVchkNI9hztz1RqhMj0vlATYm6l";
 $access_token = "538296791-XXFa1vxTSXaPsUpHvOcxArUCU0xKcniwDx26g6OT";
-$access_token_secret = "L6uLLSayKQxQMhWFp1JD0iCI7LOPVDPFKrI7POVHIREFk";
-
+$access_secret = "L6uLLSayKQxQMhWFp1JD0iCI7LOPVDPFKrI7POVHIREFk";
+echo aaaa;
 //タイムラインの情報をゲット
-$tw = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $access_secret);
+$tw = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $access_secret);echo bbbbb;
 $ret = $tw->get("statuses/home_timeline", array("count" => 10, "exclude_replies" => true));
 print_r($ret);
 ?>
