@@ -11,7 +11,7 @@
         </style>
         <meta name="description" content="" />
         <meta name="keywords" content="" />
-        <link href="./css/common.css?v=1123" rel="stylesheet" type="text/css">
+        <link href="./css/common.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div id="header_line">
@@ -32,18 +32,18 @@
                 <div class="tools contentBox">
                     <a href="" class="content_link"></a>
                     <img src="./img/neko.png" alt="テストコンテント" class="toolImg">
-                    テストコンテント
+                    <div class="toolName">テストコンテント</div>
                 </div>
                 <div class="tools contentBox">
                     <a href="" class="content_link"></a>
                     <img src="./img/neko.png" alt="テストコンテント" class="toolImg">
-                    テストコンテント
+                    <div class="toolName">テストコンテント</div>
                 </div>
 
                 <div class="tools contentBox">
                     <a href="" class="content_link"></a>
                     <img src="./img/neko.png" alt="テストコンテント" class="toolImg">
-                    テストコンテント
+                    <div class="toolName">テストコンテント</div>
                 </div>
             </div>
             <div id="ad_area">

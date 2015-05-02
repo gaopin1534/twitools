@@ -73,6 +73,10 @@
             border:solid;
             color:white;
         }
+        .toolName{
+            width:380px;
+            text-align: center;
+        }
         .adbox{
             margin:2px auto;
         }
