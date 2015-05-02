@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
+        <link rel="shortcut icon" href="../img/twitter.png">
         <meta charset="UTF-8" />
         <title>twitools</title>
         <script type="text/javascript">

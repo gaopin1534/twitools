@@ -2,6 +2,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>twitools</title>
+        <link rel="shortcut icon" href="../img/twitter.png">
         <script type="text/javascript">
         </script>
         <style type="text/css">
