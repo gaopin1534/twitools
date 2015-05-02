@@ -2,17 +2,14 @@
             width: 100%;
             height:100px;
             background-color: #87CEEB;
-            min-width: 1030px;
+            min-width: 1116px;
         }
-        #main_content{
-            height:1000px;
-            }
         #footer_line{
             background-color: #87CEEB;
             height:50px;
         }
         .contents{
-            width: 1030px;
+            width: 1116px;
             margin: 0 auto;
         }
         #main_content{
@@ -63,7 +60,7 @@
             float:left;
         }
         #ad_area{
-            width: 250px;
+            width: 336px;
             float:left;
         }
         .contentBox{
@@ -77,14 +74,7 @@
             color:white;
         }
         .adbox{
-            width:250px;
-            margin:2px 2px;
-            float:left;
-            border-radius:15px;
-            height:400px;
-            position:relative;
-            border:solid;
-            color:white;
+            margin:2px auto;
         }
         .tools{
             background-color:#87CEEB;

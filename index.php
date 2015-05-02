@@ -1,65 +1,19 @@
-
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8" />
-        <title>twitools</title>
-        <script type="text/javascript">
-        </script>
-        <style type="text/css">
-
-        </style>
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <link href="./common/common.css?v=1123" rel="stylesheet" type="text/css">
-    </head>
-    <body>
-        <div id="header_line">
-            <div id="header_contents" class="contents">
-                <div id="title"><a href="index.php">twitools</a></div>
-                <div id="right_elements">
-                    <ul>
-                        <li id="account_img"></li>
-                        <li id="login" class="rightElm"><a id="login_link" href="login.php">login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-        <div id="main_content" class="contents">
-            <div id="message">twitterで使える気の利くツール集</div>
-            <div id="tool_area">
-                <div class="tools contentBox">
-                    <a href="" class="content_link"></a>
-                    <img src="./img/neko.png" alt="テストコンテント" class="toolImg">
-                    テストコンテント
-                </div>
-                <div class="tools contentBox">
-                    <a href="" class="content_link"></a>
-                    <img src="./img/neko.png" alt="テストコンテント" class="toolImg">
-                    テストコンテント
-                </div>
-
-                <div class="tools contentBox">
-                    <a href="" class="content_link"></a>
-                    <img src="./img/neko.png" alt="テストコンテント" class="toolImg">
-                    テストコンテント
-                </div>
-            </div>
-            <div id="ad_area">
-                <div class="ad adbox">
-                    <a href="" class="content_link"></a>
-
-                    テストコンテント
-                </div>
-            </div>
-        </div>
-        <div id="footer_line">
-            <div class="contents">
-                <div id="copyright">
-                    &copy; 2015 gaopin1534
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+<?
+require_once("./common/constants.php");
+require_once("./twitteroauth-master/autoload.php");
+require_once("./twitteroauth-master/src/TwitterOAuth.php");
+use Abraham\TwitterOAuth\TwitterOAuth;
+session_start();
+if($_SESSION["user_id"]){
+    //タイムラインの情報をゲットだ
+    $tw = new TwitterOAuth(API_KEY, API_SECRET, $_SESSION["access_token"], $_SESSION["access_token_secret"]);
+    $ret = $tw->get("users/lookup", array("user_id" => $_SESSION["user_id"]));
+    // = json_decode(,true);
+    $user = $ret[0];
+    $login_info = '<a href="logout.php">'.$_SESSION["screen_name"]."</a>";
+    $account_img = '<img src="'.$user->profile_image_url.'">';
+}else{
+    $login_info = '<a id="login_link" href="login.php">login</a>';
+}
+require_once("./view/index_v.php");
+?>
