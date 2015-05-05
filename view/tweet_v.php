@@ -1,8 +1,10 @@
+<!DOCTYPE html>
 <html lang="ja">
     <head>
+        <meta http-equiv="refresh" content="3; URL=./index.php">
+        <link rel="shortcut icon" href="../img/twitter.png">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>twitools</title>
-        <link rel="shortcut icon" href="../img/twitter.png">
         <script type="text/javascript">
         </script>
         <style type="text/css">
@@ -10,7 +12,7 @@
         </style>
         <meta name="description" content="" />
         <meta name="keywords" content="" />
-        <link href="./css/common.css?v=1123" rel="stylesheet" type="text/css">
+        <link href="./css/common.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div id="header_line">
@@ -18,8 +20,8 @@
                 <div id="title"><a href="index.php">twitools</a></div>
                 <div id="right_elements">
                     <ul>
-                        <li id="account_img"></li>
-                        <li id="login" class="rightElm"><a id="login_link" href="login.php">login</a></li>
+                        <li id="account_img"><?=$account_img?></li>
+                        <li id="login" class="rightElm"><?=$login_info?></li>
                     </ul>
                 </div>
             </div>
@@ -27,10 +29,11 @@
         <div class="clearfix"></div>
         <div id="main_content" class="contents">
             <div id="tool_area">
-                <?=$html?>
+            <div id="message"></div>
+                <?=$result_message?>
             </div>
             <div id="ad_area">
-                 <div class="adbox">
+                <div class="adbox">
                     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <!-- ad_2 -->
                     <ins class="adsbygoogle"
