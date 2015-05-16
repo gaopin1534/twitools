@@ -30,6 +30,12 @@
                 <?=$html?>
             </div>
             <div id="ad_area">
+                <div class="adbox">
+                    <div id="outline">
+                        twitterをより便利に！<br>
+                        twitterでやりたい色々なことを実現できるツール集です。
+                    </div>
+                </div>
                  <div class="adbox">
                     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <!-- ad_2 -->

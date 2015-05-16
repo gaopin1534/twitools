@@ -10,14 +10,28 @@
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <script src="./js/jquery-1.11.2.min.js"></script>
+        <script src="./js/common.js"></script>
         <link href="./css/common.css" rel="stylesheet" type="text/css">
         <link href="./css/follow_chk.css" rel="stylesheet" type="text/css">
         <script type="text/javascript">
+            var if_login = <?=($_SESSION["user_id"])?"1":"0"?>;
             $(document).ready(function(){
-                $("#submit_button").click(function(){
-                    $("#form").attr("action",$(this).attr("data-action"));
-                    $("#form").submit();
-                });
+                if(if_login == 1){
+                    $("#submit_button").click(function(){
+                        $("#form").attr("action",$(this).attr("data-action"));
+                        $("#form").submit();
+                    });
+                }else{
+                    $("#submit_button").click(function(){
+                        $("#login_modal").show();
+                    });
+                    $("#login_modal").click(function(){
+                        $("#login_modal").hide();
+                    });
+                    $("#login_box").click(function(e){
+                        e.stopPropagation();
+                    });
+                }
                 $("#tweet_button").click(function(){
                     $("#form").attr("action",$(this).attr("data-action"));
                     $("#form").submit();
@@ -66,6 +80,12 @@
             </div>
             <div id="ad_area">
                 <div class="adbox">
+                    <div id="outline">
+                        twitterをより便利に！<br>
+                        twitterでやりたい色々なことを実現できるツール集です。
+                    </div>
+                </div>
+                <div class="adbox">
                     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <!-- ad_2 -->
                     <ins class="adsbygoogle"
@@ -93,6 +113,16 @@
             <div class="contents">
                 <div id="copyright">
                     &copy; 2015 gaopin1534
+                </div>
+            </div>
+        </div>
+        <div id="login_modal">
+            <div id="login_box">
+                <div id="login_message">
+                    機能を使うには、ログインをしてください！
+                    <br>
+                    <br>
+                    <a href="login.php" class="button" id="login_button">login</a>
                 </div>
             </div>
         </div>
