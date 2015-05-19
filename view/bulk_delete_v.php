@@ -12,7 +12,7 @@
         <script src="./js/jquery-1.11.2.min.js"></script>
         <script src="./js/common.js"></script>
         <link href="./css/common.css" rel="stylesheet" type="text/css">
-        <link href="./css/follow_chk.css" rel="stylesheet" type="text/css">
+        <link href="./css/bulk_delete.css" rel="stylesheet" type="text/css">
         <script type="text/javascript">
             var if_login = <?=($_SESSION["user_id"])?"1":"0"?>;
             $(document).ready(function(){
@@ -36,6 +36,25 @@
                     $("#form").attr("action",$(this).attr("data-action"));
                     $("#form").submit();
                 });
+                $(".tweetBox").click(function(){
+                    var target = $(this).find('input[type=checkbox]');
+                    var checked = $(this).find('.tweetChk');
+                    if(target.prop("checked")){
+                        target.prop("checked",false);
+                        checked.removeClass('checked');
+                    }else{
+                        target.prop("checked",true);
+                        checked.addClass('checked');
+                    }
+                });
+                $(".tweetChk input").click(function(e){
+                    e.stopPropagation();
+                    if($(this).prop("checked")){
+                        $(this).parent().addClass('checked');
+                    }else{
+                        $(this).parent().removeClass('checked');
+                    }
+                });
             });
         </script>
     </head>
@@ -55,26 +74,44 @@
         <div id="main_content" class="contents">
             <div id="tool_area">
             <div id="message">いらないツイートを一括削除！</div>
-                <form action="follow_chk.php" id="form" method="post" accept-charset="utf-8">
+                <form action="bulk_delete.php" id="form" method="post" accept-charset="utf-8">
                     <div id="forms">
                         <?php if($result_message){?>
                         <div id="result_box">
-                        <div id="result_message">
-                        <?=$result_message?>
-                        </div>
-                        結果をtweetしよう！<br>
-                        <textarea name="result_tweet" id="result_tweet" class="resultTweet"><?=$result_message?> / twitools http://twitools.com/follow_chk.php
-                        </textarea>
-                        <a href="#" class="button" id="tweet_button" data-action="tweet.php?action=tweet">ツイート！</a>
+                            <div id="result_message">
+                            <?=$result_message?>
+                            </div>
+                            結果をtweetしよう！<br>
+                            <textarea name="result_tweet" id="result_tweet" class="resultTweet"><?=$result_message?> / twitools http://twitools.com/bulk_delete.php
+                            </textarea>
+                            <a href="#" class="button" id="tweet_button" data-action="tweet.php?action=tweet">ツイート！</a>
                         </div>
                         <?php }?>
-                        <div id="box">
-                            @<input type="text" name="source" id="source" value="<?=($message_flg)?$_REQUEST["source"]:''?>">×
-                            @<input type="text" name="target" id="target" value="<?=($message_flg)?$_REQUEST["target"]:''?>">
+                        <div class="pageBar">
+                        <a href="#" class="smallButton previousButton" data-action="bulk_delete.php?since_id=">前のページ</a>
+                        <a href="#" class="smallButton nextButton" data-action="bulk_delete.php?max_id=submit">次のページ</a>
                         </div>
-                        <br>
+                        <?php foreach ($tweet_list as $value) { ?>
+                        <div class="tweetBox">
+                            <div class="tweetChk">
+                                <input type="checkbox" name="del_id[]" value="<?=$value->id_str?>">
+                            </div>
+                            <div class="tweetContent">
+                                <div class="tweetDate">
+                                <?=$value->created_at?>
+                                </div>
+                                <div class="tweetText">
+                                <?=$value->text?>
+                                </div>
+                            </div>
+                        </div>
+                        <?php } ?>
+                        <div class="pageBar">
+                        <a href="#" class="smallButton previousButton" data-action="bulk_delete.php?since_id=">前のページ</a>
+                        <a href="#" class="smallButton nextButton" data-action="bulk_delete.php?max_id=submit">次のページ</a>
+                        </div>
                         <?php if($message_flg){?><div class="err"><?=$message_flg?></div><?php } ?>
-                        <a href="#" class="button" id="submit_button" data-action="follow_chk.php?action=submit">チェック！</a>
+                        <a href="#" class="button" id="submit_button" data-action="bulk_delete.php?action=submit">削除！</a>
                     </div>
                 </form>
             </div>

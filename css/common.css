@@ -22,7 +22,15 @@
             padding:0 5px;
         }
         #main_content{
-            height:2000px;
+            min-height:2000px;
+            padding:5px 0 10px 0;
+        }
+        #main_content:after {
+            content: " ";
+            display: block;
+            visibility: hidden;
+            height: 0;
+            clear: both;
         }
         #header_contents div{
             color:white;
@@ -103,7 +111,7 @@
             border-color:red;
         }
         #message{
-            width:1030px;
+            width:780px;
             margin:0 auto;
         }
         .content_link{
@@ -122,7 +130,19 @@
             border-radius:15px;
             display:block;
         }
+        .smallButton{
+            width:100px;
+            font-size: 15px;
+            text-align: center;
+            background-color:#87CEEB;
+            border-radius:15px;
+            display:block;
+        }
         .button:hover{
+            background-color:#478EAB;
+            color:#DFDFDF;
+        }
+        .smallButton:hover{
             background-color:#478EAB;
             color:#DFDFDF;
         }
@@ -163,4 +183,43 @@
         }
         #login_button{
             margin:30px auto;
+        }
+        .tweetBox{
+            width
+        }
+        .tweetBox{
+          height:100px;
+          width:760px;
+          margin:15px 0;
+          border:solid thin skyblue;
+          border-radius: 15px;
+        }
+        .tweetDate{
+          font-size:14px;
+        }
+        .tweetText{
+          font-size:18px;
+          padding: 5px;
+        }
+        .tweetChk{
+          float:left;
+            height: 100%;
+            border-radius: 15px 0px 0px 15px;
+        }
+        .pageBar{
+            margin:5px;
+            width:770px;
+            height:30px;
+        }
+        .previousButton{
+            float:left;
+        }
+        .nextButton{
+            float:right;
+        }
+        .inactive{
+            background-color: gray;
+        }
+        .checked{
+            background-color:#87CEEB;
         }
