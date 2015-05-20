@@ -34,6 +34,11 @@
                     <img src="./img/fallow_chk.jpg" alt="フォローチェック" class="toolImg">
                     <div class="toolName">フォローチェック</div>
                 </div>
+                <div class="tools contentBox">
+                    <a href="./bulk_delete.php" class="content_link"></a>
+                    <img src="./img/bulk_delete.jpg" alt="一括削除" class="toolImg">
+                    <div class="toolName">一括削除</div>
+                </div>
             </div>
             <div id="ad_area">
                 <div class="adbox">

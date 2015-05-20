@@ -188,7 +188,7 @@
             width
         }
         .tweetBox{
-          height:100px;
+          height:120px;
           width:760px;
           margin:15px 0;
           border:solid thin skyblue;
@@ -219,6 +219,10 @@
         }
         .inactive{
             background-color: gray;
+        }
+        .inactive:hover{
+            background-color: gray;
+            color: #FFF;
         }
         .checked{
             background-color:#87CEEB;

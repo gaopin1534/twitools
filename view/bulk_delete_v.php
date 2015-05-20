@@ -14,8 +14,18 @@
         <link href="./css/common.css" rel="stylesheet" type="text/css">
         <link href="./css/bulk_delete.css" rel="stylesheet" type="text/css">
         <script type="text/javascript">
+            var if_first = <?=($page != 1)?"1":"0"?>;
             var if_login = <?=($_SESSION["user_id"])?"1":"0"?>;
             $(document).ready(function(){
+                $(".tweetBox").each(function(){
+                    var target = $(this).find('input[type=checkbox]');
+                    var checked = $(this).find('.tweetChk');
+                    if(target.prop("checked")){
+                        checked.addClass('checked');
+                    }else{
+                        checked.removeClass('checked');
+                    }
+                });
                 if(if_login == 1){
                     $("#submit_button").click(function(){
                         $("#form").attr("action",$(this).attr("data-action"));
@@ -32,6 +42,22 @@
                         e.stopPropagation();
                     });
                 }
+                if(if_first == 1){
+                    $(".previousButton").click(function(){
+                            $("#form").attr("action",$(this).attr("data-action"));
+                            $("#form").submit();
+                    });
+                }else{
+                    $(".previousButton").addClass("inactive");
+                    $(".previousButton").click(function(){
+                        return false;
+                    })
+                }
+                $(".nextButton").click(function(){
+                        $("#form").attr("action",$(this).attr("data-action"));
+                        $("#form").submit();
+                    });
+
                 $("#tweet_button").click(function(){
                     $("#form").attr("action",$(this).attr("data-action"));
                     $("#form").submit();
@@ -75,6 +101,7 @@
             <div id="tool_area">
             <div id="message">いらないツイートを一括削除！</div>
                 <form action="bulk_delete.php" id="form" method="post" accept-charset="utf-8">
+                    <input type="hidden" name="pre_max" value="<?=$_REQUEST["max_id"]?>">
                     <div id="forms">
                         <?php if($result_message){?>
                         <div id="result_box">
@@ -87,14 +114,15 @@
                             <a href="#" class="button" id="tweet_button" data-action="tweet.php?action=tweet">ツイート！</a>
                         </div>
                         <?php }?>
+                        <?php if($tweet_list){?>
                         <div class="pageBar">
-                        <a href="#" class="smallButton previousButton" data-action="bulk_delete.php?since_id=">前のページ</a>
-                        <a href="#" class="smallButton nextButton" data-action="bulk_delete.php?max_id=submit">次のページ</a>
+                        <a href="#" class="smallButton previousButton" data-action="bulk_delete.php?action=pre_search&page=<?=$pre_page?>&max_id=<?=$page_id[$pre_page]?>">前のページ</a>
+                        <a href="#" class="smallButton nextButton" data-action="bulk_delete.php?action=next_search&page=<?=$next_page?>&max_id=<?=$next_id?>">次のページ</a>
                         </div>
-                        <?php foreach ($tweet_list as $value) { ?>
+                        <?php foreach ($tweet_list as $value) {?>
                         <div class="tweetBox">
                             <div class="tweetChk">
-                                <input type="checkbox" name="del_id[]" value="<?=$value->id_str?>">
+                                <input type="checkbox" <?=(in_array($value->id_str,$_SESSION["id_stuck"]))?'checked="checked"':''?>name="del_id[]" value="<?=$value->id_str?>">
                             </div>
                             <div class="tweetContent">
                                 <div class="tweetDate">
@@ -107,11 +135,14 @@
                         </div>
                         <?php } ?>
                         <div class="pageBar">
-                        <a href="#" class="smallButton previousButton" data-action="bulk_delete.php?since_id=">前のページ</a>
-                        <a href="#" class="smallButton nextButton" data-action="bulk_delete.php?max_id=submit">次のページ</a>
+                        <a href="#" class="smallButton previousButton" data-action="bulk_delete.php?action=pre_search&page=<?=$pre_page?>&max_id=<?=$page_id[$pre_page]?>">前のページ</a>
+                        <a href="#" class="smallButton nextButton" data-action="bulk_delete.php?action=next_search&page=<?=$next_page?>&max_id=<?=$next_id?>">次のページ</a>
                         </div>
-                        <?php if($message_flg){?><div class="err"><?=$message_flg?></div><?php } ?>
                         <a href="#" class="button" id="submit_button" data-action="bulk_delete.php?action=submit">削除！</a>
+                        <?php }else if(!$_SESSION["user_id"]){ ?>
+                            <div class="err">ログインしてください！</div>
+                        <?php } ?>
+                        <?php if($message_flg){?><div class="err"><?=$message_flg?></div><?php } ?>
                     </div>
                 </form>
             </div>
