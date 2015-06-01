@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="../img/twitter.png">
-        <title>twitools</title>
+        <title>twitools 片思いフォローされてる人々</title>
         <meta name="keywords" content="twitter,フォローチェック,一括削除,選択削除,便利,retweet,リツイート,ツール,twitools,ツイツールズ,ツイート">
         <style type="text/css">
 
@@ -15,49 +15,11 @@
         <link href="./css/common.css" rel="stylesheet" type="text/css">
         <link href="./css/oneside_to_me.css" rel="stylesheet" type="text/css">
         <script type="text/javascript">
-            var if_first = <?=($previous_cursor)?"1":"0"?>;
-            var if_last = <?=(count($follower_list) == 50)?"1":"0"?>;
-            var if_login = <?=($_SESSION["user_id"])?"1":"0"?>;
             $(document).ready(function(){
-                if(if_login == 1){
-                    $("#submit_button").click(function(){
-                        $("#form").attr("action",$(this).attr("data-action"));
-                        $("#form").submit();
-                    });
-                }else{
-                    $("#submit_button").click(function(){
-                        $("#login_modal").show();
-                    });
-                    $("#login_modal").click(function(){
-                        $("#login_modal").hide();
-                    });
-                    $("#login_box").click(function(e){
-                        e.stopPropagation();
-                    });
-                }
-                if(if_first == 1){
-                    $(".previousButton").click(function(){
-                            $("#form").attr("action",$(this).attr("data-action"));
-                            $("#form").submit();
-                    });
-                }else{
-                    $(".previousButton").addClass("inactive");
-                    $(".previousButton").click(function(){
-                        return false;
-                    })
-                }
-                if(if_last == 1){
-                    $(".nextButton").click(function(){
-                            $("#form").attr("action",$(this).attr("data-action"));
-                            $("#form").submit();
-                    });
-                }else{
-                    $(".nextButton").addClass("inactive");
-                    $(".nextButton").click(function(){
-                        return false;
-                    })
-                }
-
+                $("#tweet_button").click(function(){
+                    $("#form").attr("action",$(this).attr("data-action"));
+                    $("#form").submit();
+                });
             });
         </script>
         <script>
@@ -102,8 +64,12 @@
                         </div>
                         <?php }?>
                         <?php if($follower_list&&empty($message_flg)){?>
-                        <?php foreach ($follower_list as $value) {
-                        if(!$value->following){?>
+                        <?php
+                        $index = 0;
+                        foreach ($follower_list as $value) {
+                        if(!$value->following){
+                            $index++;
+                            ?>
                         <div class="userBox">
                             <div class="tweetChk">
                             </div>
@@ -122,6 +88,14 @@
                         <?php
                             }
                         } ?>
+                        <?php if($follower_list){?>
+                        <div id="result_box">
+                            結果をtweetしよう！<br>
+                            <textarea name="result_tweet" id="result_tweet" class="resultTweet"><?=$index?>人に片思いフォローされてます！ / twitools http://twitools.com/oneside_to_me.php
+                            </textarea>
+                            <a href="#" class="button" id="tweet_button" data-action="tweet.php?action=tweet">ツイート！</a>
+                        </div>
+                        <?php }?>
                         <?php }else if(!$_SESSION["user_id"]){ ?>
                             <div class="err">ログインしてください！</div>
                         <?php }?>

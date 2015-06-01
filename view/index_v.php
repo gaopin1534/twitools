@@ -3,7 +3,7 @@
     <head>
         <link rel="shortcut icon" href="../img/twitter.png">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>twitools</title>
+        <title>twitools ツイッター用ツール集</title>
         <meta name="keywords" content="twitter,フォローチェック,一括削除,選択削除,便利,retweet,リツイート,ツール,twitools,ツイツールズ,ツイート,片思いフォロー">
         <script type="text/javascript">
         </script>
@@ -48,7 +48,7 @@
                 <div class="tools contentBox">
                     <a href="./bulk_delete.php" class="content_link"></a>
                     <img src="./img/bulk_delete.jpg" alt="一括削除" class="toolImg">
-                    <div class="toolName">一括削除</div>
+                    <div class="toolName">ツイート選択削除</div>
                 </div>
                 <div class="tools contentBox">
                     <a href="./retweeted.php" class="content_link"></a>

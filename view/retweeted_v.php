@@ -111,8 +111,12 @@
                             <div class="tweetChk">
                             </div>
                             <div class="tweetContent">
+                                <?php
+                                $date = new DateTime($value->created_at);
+                                $date->setTimezone(new DateTimeZone('Asia/Tokyo'));
+                                ?>
                                 <div class="tweetDate">
-                                <?=$value->created_at?>
+                                <?=$date->format('Y年 m月d日 H時i分')?>
                                 </div>
                                 <div class="tweetText">
                                 <?=$value->text?>

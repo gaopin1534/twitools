@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="../img/twitter.png">
-        <title>twitools</title>
+        <title>twitools ツイート選択削除</title>
         <meta name="keywords" content="twitter,フォローチェック,一括削除,選択削除,便利,retweet,リツイート,ツール,twitools,ツイツールズ,ツイート">
         <style type="text/css">
 
@@ -117,7 +117,7 @@
         <div class="clearfix"></div>
         <div id="main_content" class="contents">
             <div id="tool_area">
-            <div id="message">いらないツイートを一括削除！</div>
+            <div id="message">いらないツイートを選択削除！</div>
                 <form action="bulk_delete.php" id="form" method="post" accept-charset="utf-8">
                     <input type="hidden" name="pre_max" value="<?=$_REQUEST["max_id"]?>">
                     <div id="forms">
@@ -143,8 +143,12 @@
                                 <input type="checkbox" <?=(in_array($value->id_str,$_SESSION["id_stuck"]))?'checked="checked"':''?>name="del_id[]" value="<?=$value->id_str?>">
                             </div>
                             <div class="tweetContent">
+                                <?php
+                                $date = new DateTime($value->created_at);
+                                $date->setTimezone(new DateTimeZone('Asia/Tokyo'));
+                                ?>
                                 <div class="tweetDate">
-                                <?=$value->created_at?>
+                                <?=$date->format('Y年 m月d日 H時i分')?>
                                 </div>
                                 <div class="tweetText">
                                 <?=$value->text?>
