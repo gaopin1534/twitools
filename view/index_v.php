@@ -4,7 +4,7 @@
         <link rel="shortcut icon" href="../img/twitter.png">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>twitools</title>
-        <meta name="keywords" content="twitter,フォローチェック,一括削除,選択削除,便利,retweet,リツイート,ツール,twitools,ツイツールズ,ツイート">
+        <meta name="keywords" content="twitter,フォローチェック,一括削除,選択削除,便利,retweet,リツイート,ツール,twitools,ツイツールズ,ツイート,片思いフォロー">
         <script type="text/javascript">
         </script>
         <style type="text/css">
@@ -54,6 +54,11 @@
                     <a href="./retweeted.php" class="content_link"></a>
                     <img src="./img/retweeted.jpg" alt="リツイートされたツイート一覧" class="toolImg">
                     <div class="toolName">リツイートされたツイート一覧</div>
+                </div>
+                <div class="tools contentBox">
+                    <a href="./oneside_to_me.php" class="content_link"></a>
+                    <img src="./img/oneside_to_me.jpg" alt="片思いフォローされてる人々" class="toolImg">
+                    <div class="toolName">片思いフォローされてる人々</div>
                 </div>
             </div>
             <div id="ad_area">

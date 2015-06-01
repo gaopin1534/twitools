@@ -213,6 +213,7 @@
             border-radius: 15px 0px 0px 15px;
             display: block;
             width: 25px;
+            display: inline-block;
         }
         .pageBar{
             margin:5px;
@@ -234,4 +235,36 @@
         }
         .checked{
             background-color:#87CEEB;
+        }
+        .userBox{
+            height:80px;
+            width:760px;
+            margin:15px 0;
+            border:solid thin skyblue;
+            border-radius: 15px;
+            position:relative;
+        }
+        .userImgBox{
+            height:100%;
+            padding:16px 0;
+            width:48px;
+            display: inline-block;
+        }
+        .userContent{
+            display: inline-block;
+            height: 100%;
+            padding: auto 0;
+        }
+        .userImg{
+            height:48px;
+        }
+        .userName{
+            font-size: 25px;
+        }
+        .userName a{
+            text-decoration: none;
+            color:black;
+        }
+        .screenName{
+            color:#8899A6;
         }
