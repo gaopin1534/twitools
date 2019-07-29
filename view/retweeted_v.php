@@ -152,6 +152,10 @@
 
             </div>
         </div>
+        <script type="text/javascript">
+        var nend_params = {"media":61987,"site":325517,"spot":966028,"type":1,"oriented":1};
+        </script>
+        <script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
         <div id="footer_line">
             <div class="contents">
                 <div id="copyright">
